@@ -44,3 +44,145 @@ Sistema de agendamento com foco em três funcionalidades principais:
 - Banco de dados PostgreSQL via Prisma + Supabase
 - Autenticação Next Auth js
 - Envio de emails via Resend
+
+## Distribuição de Responsabilidades
+
+### Paulo (Tarefas Mais Simples)
+1. **Autenticação e Login** [PARCIALMENTE CONCLUÍDO]
+   - [CONCLUÍDO] Implementação da tela de login
+   - Integração com Next Auth js
+   - Redirecionamentos e proteção de rotas
+
+2. **Interface do Dashboard** [PARCIALMENTE CONCLUÍDO]
+   - [CONCLUÍDO] Layout básico do dashboard
+   - [CONCLUÍDO] Componentes de navegação
+   - Estatísticas simples de agendamentos
+
+3. **Visualização de Agendamentos** [CONCLUÍDO]
+   - [CONCLUÍDO] Implementação da visualização em lista
+   - [CONCLUÍDO] Filtros básicos (data, status)
+   - [CONCLUÍDO] Paginação dos resultados
+
+4. **Notificações por Email**
+   - Configuração do sistema de envio de emails
+   - Templates para confirmação de agendamento
+   - Templates para cancelamento
+
+5. **Testes e Documentação**
+   - Testes básicos de interface
+   - Documentação de uso do sistema
+   - Manual do usuário
+
+### Allan (Tarefas Mais Complexas)
+1. **Modelagem do Banco de Dados**
+   - Definição de schemas no Prisma
+   - Relacionamentos entre entidades
+   - Configuração do Supabase
+
+2. **Criação de Agendas** [CONCLUÍDO]
+   - [CONCLUÍDO] Interface de criação e edição de agendas
+   - [CONCLUÍDO] Configuração avançada de disponibilidade
+   - [CONCLUÍDO] Sistema de vinculação com gestores e profissionais
+
+3. **Controle de Disponibilidade** [PARCIALMENTE CONCLUÍDO]
+   - [CONCLUÍDO] Interface de seleção de slots de horários
+   - Algoritmo para cálculo de slots disponíveis
+   - Tratamento de conflitos de horários
+
+4. **Sistema de Agendamento Público** [CONCLUÍDO]
+   - [CONCLUÍDO] Interface do cliente para URL pública
+   - [CONCLUÍDO] Sistema de seleção de horários disponíveis
+   - [CONCLUÍDO] Formulário para informações do cliente
+
+5. **Registro de Presença** [CONCLUÍDO]
+   - [CONCLUÍDO] Interface para profissionais marcarem presença/ausência
+   - [CONCLUÍDO] Exibição de status dos agendamentos
+   - [CONCLUÍDO] Filtros de visualização
+
+6. **Arquitetura e Segurança** [PARCIALMENTE CONCLUÍDO]
+   - [CONCLUÍDO] Estrutura geral da aplicação
+   - Gerenciamento de permissões
+   - Proteção contra abusos no sistema público
+
+## Cronograma de Implementação
+
+### Fase 1: Fundação e Estrutura Base
+1. **Arquitetura e Segurança** (Allan) [PARCIALMENTE CONCLUÍDO]
+   - [CONCLUÍDO] Definir estrutura do projeto
+   - Configurar rotas e proteções básicas
+   - Estabelecer padrões de código
+
+2. **Modelagem do Banco de Dados** (Allan)
+   - Implementar schemas e relações
+   - Configurar conexão com Supabase
+   - Criar migrações iniciais
+
+3. **Autenticação e Login** (Paulo) [PARCIALMENTE CONCLUÍDO]
+   - [CONCLUÍDO] Implementar tela de login
+   - Configurar Next Auth js
+   - Testar fluxos de autenticação
+
+### Fase 2: Interface Básica e Fluxos Principais
+4. **Interface do Dashboard** (Paulo) [PARCIALMENTE CONCLUÍDO]
+   - [CONCLUÍDO] Desenvolver layout base e navegação
+   - [CONCLUÍDO] Implementar sidebar e menus
+   - Criar componentes compartilhados
+
+5. **Criação de Agendas** (Allan) [CONCLUÍDO]
+   - [CONCLUÍDO] Desenvolver formulários de criação
+   - [CONCLUÍDO] Implementar configuração de disponibilidade
+   - [CONCLUÍDO] Criar interface de vinculação de usuários
+
+6. **Visualização de Agendamentos** (Paulo) [CONCLUÍDO]
+   - [CONCLUÍDO] Implementar visualização em lista
+   - [CONCLUÍDO] Desenvolver filtros e buscas
+   - [CONCLUÍDO] Criar paginação e ordenação
+
+### Fase 3: Lógica de Negócio e Funcionalidades Avançadas
+7. **Controle de Disponibilidade** (Allan) [PARCIALMENTE CONCLUÍDO]
+   - [CONCLUÍDO] Interface de seleção de horários
+   - Implementar algoritmo de slots disponíveis
+   - Desenvolver regras de conflitos
+
+8. **Sistema de Agendamento Público** (Allan) [CONCLUÍDO]
+   - [CONCLUÍDO] Desenvolver interface pública
+   - [CONCLUÍDO] Implementar seleção de horários
+   - [CONCLUÍDO] Criar fluxo de validação de dados
+
+9. **Notificações por Email** (Paulo)
+   - Configurar serviço de emails
+   - Criar templates de notificação
+   - Implementar gatilhos de envio
+
+### Fase 4: Funcionalidades Complementares e Finalização
+10. **Registro de Presença** (Allan) [CONCLUÍDO]
+    - [CONCLUÍDO] Implementar interface de presença/ausência
+    - [CONCLUÍDO] Desenvolver visualização de status
+    - [CONCLUÍDO] Criar filtros e busca
+
+11. **Testes e Documentação** (Paulo)
+    - Realizar testes de interface
+    - Documentar funcionalidades
+    - Criar manual do usuário
+
+12. **Revisão Final e Lançamento** (Allan e Paulo)
+    - Testar todo o sistema em conjunto
+    - Corrigir bugs identificados
+    - Preparar ambiente de produção
+
+## Status do Projeto: Interface Visual Concluída, Backend Pendente
+
+O projeto atualmente tem a maior parte da interface visual implementada, porém ainda não possui integração com backend real. Os seguintes componentes visuais foram concluídos:
+
+- Interface de login
+- Dashboard básico
+- Listagem de agendamentos
+- Interface de criação de agendas
+- Sistema de registro de presença
+- Interface pública para agendamento
+
+Pendências principais:
+- Integração com banco de dados (Prisma + Supabase)
+- Sistema de autenticação funcional (Next Auth)
+- Serviço de notificações por email
+- Lógica de negócio no backend para gerenciamento de agendamentos
