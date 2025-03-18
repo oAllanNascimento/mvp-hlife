@@ -7,11 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:test": "ts-node lib/db-test.ts",
-    "db:seed": "ts-node prisma/seed.ts"
+    "db:test": "ts-node --project tsconfig.scripts.json lib/db-test.ts",
+    "db:seed": "ts-node --project tsconfig.scripts.json prisma/seed.ts"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "ts-node --project tsconfig.scripts.json prisma/seed.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

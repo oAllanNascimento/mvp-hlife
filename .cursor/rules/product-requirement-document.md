@@ -74,7 +74,7 @@ Sistema de agendamento com foco em três funcionalidades principais:
    - Manual do usuário
 
 ### Allan (Tarefas Mais Complexas)
-1. **Modelagem do Banco de Dados** [CONCLUÍDO - PENDENTE TESTES]
+1. **Modelagem do Banco de Dados** [CONCLUÍDO]
    - [CONCLUÍDO] Definição de schemas no Prisma
    - [CONCLUÍDO] Relacionamentos entre entidades
    - [CONCLUÍDO] Configuração do Supabase
@@ -112,7 +112,7 @@ Sistema de agendamento com foco em três funcionalidades principais:
    - Configurar rotas e proteções básicas
    - Estabelecer padrões de código
 
-2. **Modelagem do Banco de Dados** (Allan) [CONCLUÍDO - PENDENTE TESTES]
+2. **Modelagem do Banco de Dados** (Allan) [CONCLUÍDO]
    - [CONCLUÍDO] Implementar schemas e relações
    - [CONCLUÍDO] Configurar conexão com Supabase
    - [CONCLUÍDO] Criar migrações iniciais
@@ -180,13 +180,13 @@ O projeto atualmente tem a maior parte da interface visual implementada, e a est
 - Interface de criação de agendas
 - Sistema de registro de presença
 - Interface pública para agendamento
-- [NOVO] Modelagem do banco de dados com Prisma
-- [NOVO] Algoritmo para cálculo de disponibilidade
-- [NOVO] Tratamento de conflitos de horários
-- [NOVO] Preparação para integração com Supabase
+- [CONCLUÍDO] Modelagem do banco de dados com Prisma
+- [CONCLUÍDO] Algoritmo para cálculo de disponibilidade
+- [CONCLUÍDO] Tratamento de conflitos de horários
+- [CONCLUÍDO] Integração com Supabase
 
 Pendências principais:
-- [ATUALIZADO] Testes de integração com banco de dados (Prisma + Supabase)
+- [ATUALIZADO] Testes de integração do backend e frontend
 - Sistema de autenticação funcional (Next Auth)
 - Serviço de notificações por email
 - [ATUALIZADO] Integração da lógica de negócio com a interface do usuário
@@ -195,7 +195,7 @@ Pendências principais:
 
 Para concluir a implementação, é necessário:
 
-1. Configurar um projeto real no Supabase e atualizar as variáveis de ambiente
+1. [CONCLUÍDO] Configurar um projeto real no Supabase e atualizar as variáveis de ambiente
 2. Executar as migrações e o script de seed para popular o banco de dados
 3. Realizar testes de integração para validar:
    - Algoritmo de disponibilidade
