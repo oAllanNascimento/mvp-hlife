@@ -74,20 +74,20 @@ Sistema de agendamento com foco em três funcionalidades principais:
    - Manual do usuário
 
 ### Allan (Tarefas Mais Complexas)
-1. **Modelagem do Banco de Dados**
-   - Definição de schemas no Prisma
-   - Relacionamentos entre entidades
-   - Configuração do Supabase
+1. **Modelagem do Banco de Dados** [CONCLUÍDO - PENDENTE TESTES]
+   - [CONCLUÍDO] Definição de schemas no Prisma
+   - [CONCLUÍDO] Relacionamentos entre entidades
+   - [CONCLUÍDO] Configuração do Supabase
 
 2. **Criação de Agendas** [CONCLUÍDO]
    - [CONCLUÍDO] Interface de criação e edição de agendas
    - [CONCLUÍDO] Configuração avançada de disponibilidade
    - [CONCLUÍDO] Sistema de vinculação com gestores e profissionais
 
-3. **Controle de Disponibilidade** [PARCIALMENTE CONCLUÍDO]
+3. **Controle de Disponibilidade** [CONCLUÍDO - PENDENTE TESTES]
    - [CONCLUÍDO] Interface de seleção de slots de horários
-   - Algoritmo para cálculo de slots disponíveis
-   - Tratamento de conflitos de horários
+   - [CONCLUÍDO] Algoritmo para cálculo de slots disponíveis
+   - [CONCLUÍDO] Tratamento de conflitos de horários
 
 4. **Sistema de Agendamento Público** [CONCLUÍDO]
    - [CONCLUÍDO] Interface do cliente para URL pública
@@ -112,10 +112,10 @@ Sistema de agendamento com foco em três funcionalidades principais:
    - Configurar rotas e proteções básicas
    - Estabelecer padrões de código
 
-2. **Modelagem do Banco de Dados** (Allan)
-   - Implementar schemas e relações
-   - Configurar conexão com Supabase
-   - Criar migrações iniciais
+2. **Modelagem do Banco de Dados** (Allan) [CONCLUÍDO - PENDENTE TESTES]
+   - [CONCLUÍDO] Implementar schemas e relações
+   - [CONCLUÍDO] Configurar conexão com Supabase
+   - [CONCLUÍDO] Criar migrações iniciais
 
 3. **Autenticação e Login** (Paulo) [PARCIALMENTE CONCLUÍDO]
    - [CONCLUÍDO] Implementar tela de login
@@ -139,10 +139,10 @@ Sistema de agendamento com foco em três funcionalidades principais:
    - [CONCLUÍDO] Criar paginação e ordenação
 
 ### Fase 3: Lógica de Negócio e Funcionalidades Avançadas
-7. **Controle de Disponibilidade** (Allan) [PARCIALMENTE CONCLUÍDO]
+7. **Controle de Disponibilidade** (Allan) [CONCLUÍDO - PENDENTE TESTES]
    - [CONCLUÍDO] Interface de seleção de horários
-   - Implementar algoritmo de slots disponíveis
-   - Desenvolver regras de conflitos
+   - [CONCLUÍDO] Implementar algoritmo de slots disponíveis
+   - [CONCLUÍDO] Desenvolver regras de conflitos
 
 8. **Sistema de Agendamento Público** (Allan) [CONCLUÍDO]
    - [CONCLUÍDO] Desenvolver interface pública
@@ -170,9 +170,9 @@ Sistema de agendamento com foco em três funcionalidades principais:
     - Corrigir bugs identificados
     - Preparar ambiente de produção
 
-## Status do Projeto: Interface Visual Concluída, Backend Pendente
+## Status do Projeto: Interface Visual Concluída, Backend Em Desenvolvimento
 
-O projeto atualmente tem a maior parte da interface visual implementada, porém ainda não possui integração com backend real. Os seguintes componentes visuais foram concluídos:
+O projeto atualmente tem a maior parte da interface visual implementada, e a estrutura do backend foi desenvolvida, mas ainda requer testes com banco de dados real. Os seguintes componentes foram concluídos:
 
 - Interface de login
 - Dashboard básico
@@ -180,9 +180,25 @@ O projeto atualmente tem a maior parte da interface visual implementada, porém 
 - Interface de criação de agendas
 - Sistema de registro de presença
 - Interface pública para agendamento
+- [NOVO] Modelagem do banco de dados com Prisma
+- [NOVO] Algoritmo para cálculo de disponibilidade
+- [NOVO] Tratamento de conflitos de horários
+- [NOVO] Preparação para integração com Supabase
 
 Pendências principais:
-- Integração com banco de dados (Prisma + Supabase)
+- [ATUALIZADO] Testes de integração com banco de dados (Prisma + Supabase)
 - Sistema de autenticação funcional (Next Auth)
 - Serviço de notificações por email
-- Lógica de negócio no backend para gerenciamento de agendamentos
+- [ATUALIZADO] Integração da lógica de negócio com a interface do usuário
+
+## Observações Importantes
+
+Para concluir a implementação, é necessário:
+
+1. Configurar um projeto real no Supabase e atualizar as variáveis de ambiente
+2. Executar as migrações e o script de seed para popular o banco de dados
+3. Realizar testes de integração para validar:
+   - Algoritmo de disponibilidade
+   - Tratamento de conflitos de horários
+   - Operações de CRUD para agendas e agendamentos
+4. Integrar a interface visual existente com as APIs do backend

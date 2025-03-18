@@ -1,0 +1,108 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enum for user roles: Admin, Manager, Professional
+enum UserRole {
+  ADMIN
+  MANAGER
+  PROFESSIONAL
+}
+
+// Enum for appointment status
+enum AppointmentStatus {
+  SCHEDULED
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+  MISSED
+}
+
+// User model - represents all users in the system
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  password      String
+  role          UserRole  @default(PROFESSIONAL)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  managedSchedules  Schedule[]      @relation("ManagerSchedules")
+  assignedSchedules Schedule[]      @relation("ProfessionalSchedules")
+  appointments      Appointment[]   @relation("ProfessionalAppointments")
+}
+
+// Schedule model - represents the agendas created by admins
+model Schedule {
+  id          String    @id @default(uuid())
+  title       String
+  description String?
+  publicUrl   String    @unique // URL for public access
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  isActive    Boolean   @default(true)
+
+  // Relations
+  managerId   String
+  manager     User      @relation("ManagerSchedules", fields: [managerId], references: [id])
+  
+  professionals User[]    @relation("ProfessionalSchedules")
+  availabilities Availability[]
+  appointments   Appointment[]
+
+  @@index([managerId])
+}
+
+// Availability model - represents available time slots
+model Availability {
+  id          String    @id @default(uuid())
+  scheduleId  String
+  dayOfWeek   Int       // 0-6 for Sunday-Saturday
+  startTime   String    // Format: "HH:MM" (24-hour)
+  endTime     String    // Format: "HH:MM" (24-hour)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Relations
+  schedule    Schedule  @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  
+  @@index([scheduleId])
+  @@unique([scheduleId, dayOfWeek, startTime, endTime])
+}
+
+// Appointment model - represents bookings made by clients
+model Appointment {
+  id          String            @id @default(uuid())
+  scheduleId  String
+  clientName  String
+  clientEmail String
+  date        DateTime
+  startTime   String            // Format: "HH:MM" (24-hour)
+  endTime     String            // Format: "HH:MM" (24-hour)
+  status      AppointmentStatus @default(SCHEDULED)
+  notes       String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  
+  // Relations
+  schedule          Schedule    @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  professionalId    String?
+  professional      User?       @relation("ProfessionalAppointments", fields: [professionalId], references: [id])
+  
+  @@index([scheduleId])
+  @@index([professionalId])
+  @@index([date])
+}
