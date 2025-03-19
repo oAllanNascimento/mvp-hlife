@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
+import { toast } from "sonner"
 
 export default function PublicBookingPage({
   params,
@@ -16,6 +17,7 @@ export default function PublicBookingPage({
   const [step, setStep] = useState<"date" | "details">("date")
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
   const [selectedTime, setSelectedTime] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date)
@@ -26,10 +28,49 @@ export default function PublicBookingPage({
     setStep("details")
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Lógica para enviar o agendamento
-    alert("Agendamento realizado com sucesso!")
+    setIsSubmitting(true)
+    
+    try {
+      const formData = new FormData(e.currentTarget)
+      const name = formData.get("name") as string
+      const email = formData.get("email") as string
+      const phone = formData.get("phone") as string
+      const notes = formData.get("notes") as string
+
+      // Enviar dados para a API
+      const response = await fetch('/api/appointments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          agendaId: params.agendaId,
+          clientName: name,
+          clientEmail: email,
+          clientPhone: phone,
+          notes,
+          date: `${selectedDate}T${selectedTime}:00`
+        })
+      })
+
+      const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao processar agendamento')
+      }
+      
+      // Mostrar mensagem de sucesso
+      toast.success("Agendamento realizado com sucesso! Um email de confirmação foi enviado.", {
+        description: `${selectedDate?.split('-').reverse().join('/')} às ${selectedTime}`
+      })
+    } catch (error) {
+      console.error("Erro ao processar agendamento:", error)
+      toast.error("Erro ao realizar agendamento. Por favor, tente novamente.", {
+        description: error instanceof Error ? error.message : "Ocorreu um erro ao processar sua solicitação."
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -200,23 +241,24 @@ export default function PublicBookingPage({
                   <div className="grid gap-4">
                     <div className="grid gap-2">
                       <Label htmlFor="name">Nome completo</Label>
-                      <Input id="name" required />
+                      <Input id="name" name="name" required />
                     </div>
                     
                     <div className="grid gap-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" required />
+                      <Input id="email" name="email" type="email" required />
                     </div>
                     
                     <div className="grid gap-2">
                       <Label htmlFor="phone">Telefone</Label>
-                      <Input id="phone" type="tel" required />
+                      <Input id="phone" name="phone" type="tel" required />
                     </div>
                     
                     <div className="grid gap-2">
                       <Label htmlFor="notes">Observações (opcional)</Label>
                       <textarea
                         id="notes"
+                        name="notes"
                         className="border p-2 rounded-md"
                         placeholder="Compartilhe informações adicionais relevantes"
                         rows={3}
@@ -224,8 +266,8 @@ export default function PublicBookingPage({
                     </div>
                   </div>
 
-                  <Button type="submit" className="w-full">
-                    Confirmar Agendamento
+                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? "Processando..." : "Confirmar Agendamento"}
                   </Button>
                 </form>
               </CardContent>

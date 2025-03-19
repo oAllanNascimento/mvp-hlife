@@ -63,10 +63,11 @@ Sistema de agendamento com foco em três funcionalidades principais:
    - [CONCLUÍDO] Filtros básicos (data, status)
    - [CONCLUÍDO] Paginação dos resultados
 
-4. **Notificações por Email**
-   - Configuração do sistema de envio de emails
-   - Templates para confirmação de agendamento
-   - Templates para cancelamento
+4. **Notificações por Email** [CONCLUÍDO - PENDENTE TESTES]
+   - [CONCLUÍDO] Configuração do sistema de envio de emails via Resend
+   - [CONCLUÍDO] Templates para confirmação de agendamento
+   - [CONCLUÍDO] API para processamento de agendamentos e envio de email
+   - Email para cancelamento (não implementado nesta fase)
 
 5. **Testes e Documentação**
    - Testes básicos de interface
@@ -89,10 +90,11 @@ Sistema de agendamento com foco em três funcionalidades principais:
    - [CONCLUÍDO] Algoritmo para cálculo de slots disponíveis
    - [CONCLUÍDO] Tratamento de conflitos de horários
 
-4. **Sistema de Agendamento Público** [CONCLUÍDO]
-   - [CONCLUÍDO] Interface do cliente para URL pública
-   - [CONCLUÍDO] Sistema de seleção de horários disponíveis
-   - [CONCLUÍDO] Formulário para informações do cliente
+4. **Sistema de Agendamento Público** [CONCLUÍDO - PENDENTE TESTES]
+   - [CONCLUÍDO] Desenvolver interface pública
+   - [CONCLUÍDO] Implementar seleção de horários
+   - [CONCLUÍDO] Criar fluxo de validação de dados
+   - [CONCLUÍDO] Integração com API para salvar agendamentos
 
 5. **Registro de Presença** [CONCLUÍDO]
    - [CONCLUÍDO] Interface para profissionais marcarem presença/ausência
@@ -144,15 +146,17 @@ Sistema de agendamento com foco em três funcionalidades principais:
    - [CONCLUÍDO] Implementar algoritmo de slots disponíveis
    - [CONCLUÍDO] Desenvolver regras de conflitos
 
-8. **Sistema de Agendamento Público** (Allan) [CONCLUÍDO]
+8. **Sistema de Agendamento Público** (Allan) [CONCLUÍDO - PENDENTE TESTES]
    - [CONCLUÍDO] Desenvolver interface pública
    - [CONCLUÍDO] Implementar seleção de horários
    - [CONCLUÍDO] Criar fluxo de validação de dados
+   - [CONCLUÍDO] Integração com API para salvar agendamentos
 
-9. **Notificações por Email** (Paulo)
-   - Configurar serviço de emails
-   - Criar templates de notificação
-   - Implementar gatilhos de envio
+9. **Notificações por Email** (Paulo) [CONCLUÍDO - PENDENTE TESTES]
+   - [CONCLUÍDO] Configurar serviço de emails (Resend)
+   - [CONCLUÍDO] Criar templates de notificação para confirmação
+   - [CONCLUÍDO] Implementar gatilhos de envio de email
+   - Implementar cancelamento de agendamento (pendente)
 
 ### Fase 4: Funcionalidades Complementares e Finalização
 10. **Registro de Presença** (Allan) [CONCLUÍDO]
@@ -184,11 +188,15 @@ O projeto atualmente tem a maior parte da interface visual implementada, e a est
 - [CONCLUÍDO] Algoritmo para cálculo de disponibilidade
 - [CONCLUÍDO] Tratamento de conflitos de horários
 - [CONCLUÍDO] Integração com Supabase
+- [CONCLUÍDO] Sistema de notificações por email (confirmação de agendamento)
+- [CONCLUÍDO] API de processamento de agendamentos
 
 Pendências principais:
-- [ATUALIZADO] Testes de integração do backend e frontend
+- [PENDENTE] Testes de integração do backend e frontend
+- [PENDENTE] Testes do sistema de confirmação por email
+- [PENDENTE] Testes do fluxo completo de agendamento público
 - Sistema de autenticação funcional (Next Auth)
-- Serviço de notificações por email
+- Email de cancelamento de agendamento
 - [ATUALIZADO] Integração da lógica de negócio com a interface do usuário
 
 ## Observações Importantes
@@ -201,4 +209,6 @@ Para concluir a implementação, é necessário:
    - Algoritmo de disponibilidade
    - Tratamento de conflitos de horários
    - Operações de CRUD para agendas e agendamentos
+   - [PENDENTE] Sistema de confirmação por email
+   - [PENDENTE] API de processamento de agendamentos
 4. Integrar a interface visual existente com as APIs do backend

@@ -1,4 +1,10 @@
-import { prisma } from './prisma';
+import { PrismaClient } from '@prisma/client';
+
+// Inicializa o cliente Prisma
+const prisma = new PrismaClient();
+
+// Exporta o cliente Prisma
+export { prisma };
 
 // User-related operations
 export const getUsers = async () => {
