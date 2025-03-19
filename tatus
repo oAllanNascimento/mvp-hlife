@@ -1,0 +1,15 @@
+warning: in the working copy of 'app/layout.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/login/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/app-sidebar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/login-form.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/nav-user.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'prisma/migrations/migration_lock.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'prisma/schema.prisma', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'prisma/seed.ts', LF will be replaced by CRLF the next time Git touches it
+M	.cursor/rules/product-requirement-document.md
+M	.gitignore
+M	app/booking/[agendaId]/page.tsx
+M	lib/db.ts
+M	package-lock.json
+M	package.json
+M	prisma/seed.ts
