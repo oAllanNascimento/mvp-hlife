@@ -69,10 +69,10 @@ Sistema de agendamento com foco em três funcionalidades principais:
    - [CONCLUÍDO] API para processamento de agendamentos e envio de email
    - Email para cancelamento (não implementado nesta fase)
 
-5. **Testes e Documentação**
+5. **Testes e Documentação** [PARCIALMENTE CONCLUÍDO]
    - Testes básicos de interface
-   - Documentação de uso do sistema
-   - Manual do usuário
+   - [CONCLUÍDO] Documentação de uso do sistema
+   - [CONCLUÍDO] Manual do usuário
 
 ### Allan (Tarefas Mais Complexas)
 1. **Modelagem do Banco de Dados** [CONCLUÍDO]
@@ -164,10 +164,10 @@ Sistema de agendamento com foco em três funcionalidades principais:
     - [CONCLUÍDO] Desenvolver visualização de status
     - [CONCLUÍDO] Criar filtros e busca
 
-11. **Testes e Documentação** (Paulo)
+11. **Testes e Documentação** (Paulo) [PARCIALMENTE CONCLUÍDO]
     - Realizar testes de interface
-    - Documentar funcionalidades
-    - Criar manual do usuário
+    - [CONCLUÍDO] Documentar funcionalidades
+    - [CONCLUÍDO] Criar manual do usuário
 
 12. **Revisão Final e Lançamento** (Allan e Paulo)
     - Testar todo o sistema em conjunto
@@ -190,6 +190,7 @@ O projeto atualmente tem a maior parte da interface visual implementada, e a est
 - [CONCLUÍDO] Integração com Supabase
 - [CONCLUÍDO] Sistema de notificações por email (confirmação de agendamento)
 - [CONCLUÍDO] API de processamento de agendamentos
+- [CONCLUÍDO] Documentação completa do sistema (manual do usuário, guias rápidos, guia visual e solução de problemas)
 
 Pendências principais:
 - [PENDENTE] Testes de integração do backend e frontend
